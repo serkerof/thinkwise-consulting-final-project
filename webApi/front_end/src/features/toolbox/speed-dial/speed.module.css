@@ -1,0 +1,70 @@
+.speed_dials_container {
+    width: 56px;
+    position: absolute;
+    bottom: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.speed_dials {
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg,#171717 0,#485563 100%);
+    color: white;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.plus_icon {
+    font-size: 25px;
+    -webkit-transition: .3s ease;
+    -moz-transition: .3s ease;
+    -ms-transition: .3s ease;
+    -o-transition: .3s ease;
+    transition: .3s ease;
+}
+
+.media_icons_file {
+    margin-bottom: 20px;
+}
+
+.media_icons_image {
+    margin-bottom: 65px;
+}
+
+.media_icons_file,
+.media_icons_image {
+    display: inline-block;
+    padding: 8px;
+    background: linear-gradient(135deg, #171717, #485563);
+    color: white;
+    cursor: pointer;
+    -webkit-transition: .8s ease;
+    -moz-transition: .8s ease;
+    -ms-transition: .8s ease;
+    -o-transition: .8s ease;
+    transition: .8s ease;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+    border-radius: 100%;
+    box-shadow: rgb(41 50 60 / 50%) 0 4px 12px;
+    font-size: 45px;
+}
+
+.speed_dials:hover .plus_icon {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
