@@ -43,7 +43,7 @@ export const fetchAdminById = createAsyncThunk( "admins/fetchAdminById",
         }
     } );
 
-export const AddAdmin = createAsyncThunk( "admins/addAdmin",
+export const addAdmin = createAsyncThunk( "admins/addAdmin",
     async ( admin ) =>
     {
         try
@@ -147,16 +147,16 @@ const sliceInvoker = () =>
                 state.status = "failed";
                 state.error = action.payload;
             },
-            [ AddAdmin.pending ]: ( state, action ) =>
+            [ addAdmin.pending ]: ( state, action ) =>
             {
                 state.status = "loading";
             },
-            [ AddAdmin.fulfilled ]: ( state, action ) =>
+            [ addAdmin.fulfilled ]: ( state, action ) =>
             {
                 state.status = "succeeded";
                 adminAdapter.addOne( state, action.payload );
             },
-            [ AddAdmin.rejected ]: ( state, action ) =>
+            [ addAdmin.rejected ]: ( state, action ) =>
             {
                 state.status = "failed";
                 state.error = action.payload;

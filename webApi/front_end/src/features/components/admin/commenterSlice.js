@@ -43,7 +43,7 @@ export const fetchCommenterById = createAsyncThunk( "commenters/fetchCommenterBy
         }
     } );
 
-export const AddCommenter = createAsyncThunk( "commenters/addCommenter",
+export const addCommenter = createAsyncThunk( "commenters/addCommenter",
     async ( commenter ) =>
     {
         try
@@ -147,16 +147,16 @@ const sliceInvoker = () =>
                 state.status = "failed";
                 state.error = action.payload;
             },
-            [ AddCommenter.pending ]: ( state, action ) =>
+            [ addCommenter.pending ]: ( state, action ) =>
             {
                 state.status = "loading";
             },
-            [ AddCommenter.fulfilled ]: ( state, action ) =>
+            [ addCommenter.fulfilled ]: ( state, action ) =>
             {
                 state.status = "succeeded";
                 commenterAdapter.addOne( state, action.payload );
             },
-            [ AddCommenter.rejected ]: ( state, action ) =>
+            [ addCommenter.rejected ]: ( state, action ) =>
             {
                 state.status = "failed";
                 state.error = action.payload;

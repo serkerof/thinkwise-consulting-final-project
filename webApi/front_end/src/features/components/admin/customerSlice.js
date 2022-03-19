@@ -35,7 +35,7 @@ export const fetchCustomerById = createAsyncThunk('customers/fetchCustomerById',
   }
 });
 
-export const AddCustomer = createAsyncThunk('customers/addCustomer', async (customer) => {
+export const addCustomer = createAsyncThunk('customers/addCustomer', async (customer) => {
   try {
     const addedCustomer = await fetch('/api/Customer/add', {
       method: 'POST',
@@ -114,14 +114,14 @@ const sliceInvoker = () => {
         state.status = 'failed';
         state.error = action.payload;
       },
-      [AddCustomer.pending]: (state, action) => {
+      [addCustomer.pending]: (state, action) => {
         state.status = 'loading';
       },
-      [AddCustomer.fulfilled]: (state, action) => {
+      [addCustomer.fulfilled]: (state, action) => {
         state.status = 'succeeded';
         customerAdapter.addOne(state, action.payload);
       },
-      [AddCustomer.rejected]: (state, action) => {
+      [addCustomer.rejected]: (state, action) => {
         state.status = 'failed';
         state.error = action.payload;
       },

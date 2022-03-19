@@ -35,7 +35,7 @@ export const fetchOrderById = createAsyncThunk('orders/fetchOrderById', async (i
   }
 });
 
-export const AddOrder = createAsyncThunk('orders/addOrder', async (order) => {
+export const addOrder = createAsyncThunk('orders/addOrder', async (order) => {
   try {
     const addedOrder = await fetch('/api/Order/add', {
       method: 'POST',
@@ -114,14 +114,14 @@ const sliceInvoker = () => {
         state.status = 'failed';
         state.error = action.payload;
       },
-      [AddOrder.pending]: (state, action) => {
+      [addOrder.pending]: (state, action) => {
         state.status = 'loading';
       },
-      [AddOrder.fulfilled]: (state, action) => {
+      [addOrder.fulfilled]: (state, action) => {
         state.status = 'succeeded';
         orderAdapter.addOne(state, action.payload);
       },
-      [AddOrder.rejected]: (state, action) => {
+      [addOrder.rejected]: (state, action) => {
         state.status = 'failed';
         state.error = action.payload;
       },
