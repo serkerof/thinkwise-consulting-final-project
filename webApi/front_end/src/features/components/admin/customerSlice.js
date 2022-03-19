@@ -28,7 +28,7 @@ export const fetchCustomers = createAsyncThunk('customers/fetchCustomers', async
 
 export const fetchCustomerById = createAsyncThunk('customers/fetchCustomerById', async (id) => {
   try {
-    const response = await fetch(`/api/Customer/getbyid${id}`);
+    const response = await fetch(`/api/Customer/getbyid/${id}`);
     return await response.json();
   } catch (error) {
     return error;
@@ -52,7 +52,7 @@ export const AddCustomer = createAsyncThunk('customers/addCustomer', async (cust
 
 export const updateCustomerPassword = createAsyncThunk('customers/updateCustomerPassword', async (customer) => {
   try {
-    const updatedCustomer = await fetch(`/api/Customer/update${customer.id}`, {
+    const updatedCustomer = await fetch(`/api/Customer/update/${customer.id}`, {
       method: 'PUT',
       body: JSON.stringify(customer),
       headers: {
@@ -67,7 +67,7 @@ export const updateCustomerPassword = createAsyncThunk('customers/updateCustomer
 
 export const deleteCustomer = createAsyncThunk('customers/deleteCustomer', async (id) => {
   try {
-    const response = await fetch(`/api/Customer/delete${id}`, {
+    const response = await fetch(`/api/Customer/delete/${id}`, {
       method: 'DELETE'
     }).then((response) => response.json());
     return response;

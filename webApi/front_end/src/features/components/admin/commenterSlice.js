@@ -35,7 +35,7 @@ export const fetchCommenterById = createAsyncThunk( "commenters/fetchCommenterBy
     {
         try
         {
-            const response = await fetch( `/api/Commenter/getbyid${ id }` );
+            const response = await fetch( `/api/Commenter/getbyid/${ id }` );
             return await response.json();
         } catch ( error )
         {
@@ -68,7 +68,7 @@ export const updateCommenterPassword = createAsyncThunk( "commenters/updateComme
     {
         try
         {
-            const updatedCommenter = await fetch( `/api/Commenter/update${ commenter.id }`,
+            const updatedCommenter = await fetch( `/api/Commenter/update/${ commenter.id }`,
                 {
                     method: "PUT",
                     body: JSON.stringify( commenter ),
@@ -88,7 +88,7 @@ export const deleteCommenter = createAsyncThunk( "commenters/deleteCommenter",
     {
         try
         {
-            const response = await fetch( `/api/Commenter/delete${ id }`,
+            const response = await fetch( `/api/Commenter/delete/${ id }`,
                 {
                     method: "DELETE"
                 } ).then( response => response.json() );

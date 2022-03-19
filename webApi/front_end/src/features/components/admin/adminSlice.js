@@ -35,7 +35,7 @@ export const fetchAdminById = createAsyncThunk( "admins/fetchAdminById",
     {
         try
         {
-            const response = await fetch( `/api/Admin/getbyid${ id }` );
+            const response = await fetch( `/api/Admin/getbyid/${ id }` );
             return await response.json();
         } catch ( error )
         {
@@ -68,7 +68,7 @@ export const updateAdminPassword = createAsyncThunk( "admins/updateAdminPassword
     {
         try
         {
-            const updatedAdmin = await fetch( `/api/Admin/update${ admin.id }`,
+            const updatedAdmin = await fetch( `/api/Admin/update/${ admin.id }`,
                 {
                     method: "PUT",
                     body: JSON.stringify( admin ),
@@ -88,7 +88,7 @@ export const deleteAdmin = createAsyncThunk( "admins/deleteAdmin",
     {
         try
         {
-            const response = await fetch( `/api/Admin/delete${ id }`,
+            const response = await fetch( `/api/Admin/delete/${ id }`,
                 {
                     method: "DELETE"
                 } ).then( response => response.json() );

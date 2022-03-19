@@ -28,7 +28,7 @@ export const fetchOrders = createAsyncThunk('orders/fetchOrders', async () => {
 
 export const fetchOrderById = createAsyncThunk('orders/fetchOrderById', async (id) => {
   try {
-    const response = await fetch(`/api/Order/getbyid${id}`);
+    const response = await fetch(`/api/Order/getbyid/${id}`);
     return await response.json();
   } catch (error) {
     return error;
@@ -52,7 +52,7 @@ export const AddOrder = createAsyncThunk('orders/addOrder', async (order) => {
 
 export const updateOrderPassword = createAsyncThunk('orders/updateOrderPassword', async (order) => {
   try {
-    const updatedOrder = await fetch(`/api/Order/update${order.id}`, {
+    const updatedOrder = await fetch(`/api/Order/update/${order.id}`, {
       method: 'PUT',
       body: JSON.stringify(order),
       headers: {
@@ -67,7 +67,7 @@ export const updateOrderPassword = createAsyncThunk('orders/updateOrderPassword'
 
 export const deleteOrder = createAsyncThunk('orders/deleteOrder', async (id) => {
   try {
-    const response = await fetch(`/api/Order/delete${id}`, {
+    const response = await fetch(`/api/Order/delete/${id}`, {
       method: 'DELETE'
     }).then((response) => response.json());
     return response;
